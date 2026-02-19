@@ -1,13 +1,15 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from .data import recipes_data
+from .models import *
+from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
 
-def recipes_list(request):
-    return render(request, "ledger/recipes_list.html", { "recipes": recipes_data })
 
-def recipe(request, index):
-    if index < 1 or index > 2:
-        return HttpResponse("Invalid Index: Inaccessible Page")
+class RecipeListView(ListView):
+    model = Recipe
+    template_name = 'ledger/recipes_list.html'
+    context_object_name = 'recipes'
 
-    return render(request, "ledger/recipe.html", { "recipe": recipes_data[index - 1] })
+class RecipeDetailView(DetailView):
+    model = Recipe
+    template_name = 'ledger/recipe.html'
+    context_object_name = 'recipe'
 

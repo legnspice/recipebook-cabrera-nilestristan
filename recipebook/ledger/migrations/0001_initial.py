@@ -3,6 +3,11 @@
 import django.db.models.deletion
 from django.db import migrations, models
 
+# class populate_database():
+#     Ingredient = apps.get.model('ledger', 'Ingredient')
+#     for person in Person.objects.all():
+#         person.name = '%s %s' % (person.first_name, person.last_name)
+#         person.save()
 
 class Migration(migrations.Migration):
 
@@ -12,6 +17,7 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
+
         migrations.CreateModel(
             name='Ingredient',
             fields=[

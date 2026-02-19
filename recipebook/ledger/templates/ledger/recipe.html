@@ -1,11 +1,15 @@
 {% extends "ledger/base_ledger.html" %} 
 
 {% block app_content %}
-
-  <h4>{{recipe.name}} Ingredients</h4>
+  <h4>{{ recipe.name }} Ingredients</h4>
     
-    {% for ingredient in recipe.ingredients %}
-        <p>Name: {{ingredient.name}}    Quantity: {{ingredient.quantity}}</p>
+  <ul>
+    {% for r in recipe.ingredients.all %}
+      <li>
+        <p> <strong>Name:</strong> {{ r.ingredient.name }} </p>
+        <p> <strong>Quantity:</strong> {{ r.quantity }} </p>
+      </li>
     {% endfor %}
+  </ul>
 
 {% endblock %}

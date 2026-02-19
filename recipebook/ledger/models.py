@@ -1,19 +1,23 @@
 from django.db import models
 from django.urls import reverse
 
+
 class Recipe(models.Model):
     name = models.CharField(max_length=100)
 
     def __str__(self):
         return 'A recipe called {}'.format(self.name)
+
     def get_absolute_url(self):
         return reverse('ledger:recipe_detail', args=[str(self.id)])
+
 
 class Ingredient(models.Model):
     name = models.CharField(max_length=100)
 
     def __str__(self):
         return 'An ingredient called {}'.format(self.name)
+
     def get_absolute_url(self):
         return reverse('ledger:recipe_detail', kwargs={'pk': self.pk})
 
@@ -33,5 +37,3 @@ class RecipeIngredient(models.Model):
 
     def __str__(self):
         return f"{self.recipe.name}: {self.quantity} of {self.ingredient.name}"
-
-

@@ -8,8 +8,8 @@ class RecipeListView(ListView):
     template_name = 'ledger/recipes_list.html'
     context_object_name = 'recipes'
 
+
 class RecipeDetailView(DetailView):
     model = Recipe
     template_name = 'ledger/recipe.html'
     context_object_name = 'recipe'
-

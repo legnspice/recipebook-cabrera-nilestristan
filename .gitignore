@@ -1,5 +1,5 @@
 /myenv
-__pycache__/
+/recipebook/recipebook/__pycache__
 *.sqlite3
 /recipebook/.env
 /media/

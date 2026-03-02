@@ -1,5 +1,9 @@
 {% extends "ledger/base_ledger.html" %} 
 
+{% block heading %}
+  Recipe List Page
+{% endblock %}
+
 {% block app_content %}
   {% for recipe in recipes %}
     <h4>{{ recipe.name }}</h4>

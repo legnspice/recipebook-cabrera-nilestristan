@@ -55,6 +55,8 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'recipebook.urls'
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -126,3 +128,5 @@ STATIC_ROOT = [os.path.join(BASE_DIR, 'static')]
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+LOGIN_REDIRECT_URL = '/recipes/list'
+LOGOUT_REDIRECT_URL = '/accounts/login'

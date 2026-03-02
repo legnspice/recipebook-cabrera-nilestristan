@@ -1,8 +1,13 @@
 <!doctype html>
 <html lang="en">
-  <head> </head>
-  <body>
+  <head>   
     <h1>Recipe Book</h1>
+    {% if user.is_authenticated %}
+      {%include 'registration/logout.html'%}
+    {% else %}
+      <a href="{%url 'login' %}"> Login </a>
+    {% endif %}</head>
+  <body>
     <div id="content">{% block content %}{% endblock %}</div>
   </body>
 </html>

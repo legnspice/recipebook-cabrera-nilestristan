@@ -9,6 +9,9 @@ class Profile(models.Model):
     name = models.CharField(max_length=50)
     bio = models.TextField(validators=[MinLengthValidator(255)])
 
+    def __str__(self):
+        return f"{self.name}"
+
 
 class Recipe(models.Model):
     name = models.CharField(max_length=100)
@@ -32,6 +35,16 @@ class Ingredient(models.Model):
 
     def get_absolute_url(self):
         return reverse('ledger:ingredient_detail', kwargs={'pk': self.pk})
+
+
+class RecipeImage(models.Model):
+    image = models.ImageField(upload_to='images/', null=True)
+    description = models.CharField(max_length=255)
+    recipe = models.ForeignKey(
+        Recipe,
+        on_delete=models.CASCADE,
+        related_name='recipe_image'
+    )
 
 
 class RecipeIngredient(models.Model):

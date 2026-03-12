@@ -1,0 +1,17 @@
+{% extends "ledger/base_ledger.html" %} 
+
+{% block heading %}
+  Create Recipe Page
+{% endblock %}
+
+{% block app_content %}
+
+    <form method="post">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button type="submit">Save Recipe</button>
+    </form>
+
+{% endblock %}

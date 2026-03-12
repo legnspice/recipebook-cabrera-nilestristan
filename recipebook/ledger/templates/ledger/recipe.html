@@ -6,16 +6,17 @@
 
 {% block app_content %}
   {% if user.is_authenticated %}
-    <a href="{% url 'ledger:recipe-add-image' recipe.pk %}">Upload a new image</a>
+    <a href="{% url 'ledger:recipe_upload_image' recipe.pk %}">Upload a new image</a>
   {% endif %}
-  {% for image in images %}
+  
+  {% for image in recipe.images.all %}
     {% if image.image %}
     <img src="{{ image.image.url }}" alt="{{ image.description }}">
     {% endif %} 
   {% endfor %}
-  <h3>{{ recipe.name }} Ingredients</h4>
-  <h4>By: {{recipe.author.name}}</h3>
 
+  <h3>{{ recipe.name }} Ingredients</h3>
+  <h4>By: {{ recipe.author.name }}</h4>
 
   <ul>
     {% for r in recipe.ingredients.all %}
@@ -25,5 +26,4 @@
       </li>
     {% endfor %}
   </ul>
-
 {% endblock %}
